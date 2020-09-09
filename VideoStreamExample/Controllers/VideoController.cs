@@ -12,5 +12,11 @@ namespace VideoStreamExample.Controllers
             return PhysicalFile($"D:\\documents\\temp\\test2.mp4", "application/octet-stream",
                 enableRangeProcessing: true);
         }
+
+        [HttpGet("movie/{fileName}", Name = "Get a movie by HLS")]
+        public FileResult GetTestMovie(string fileName)
+        {
+            return PhysicalFile($"D:\\documents\\temp\\hls_sample\\{fileName}", "application/octet-stream");
+        }
     }
 }
